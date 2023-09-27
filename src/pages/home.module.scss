@@ -1,8 +1,46 @@
 .posts {
   display: flex;
   flex-direction: column;
+  gap: 3rem;
 
-  .footer {
+  .post {
+    max-width: 700px;
     display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    h1 {
+      font-size: 1.75rem;
+      cursor: pointer;
+    }
+
+    p {
+      font-size: 1.125rem;
+    }
+
+    .footer {
+      display: flex;
+      gap: 1.5rem;
+      padding-top: 1rem;
+
+      .footerItem {
+        display: flex;
+        gap: 0.5rem;
+      }
+    }
+
+    &:hover h1 {
+        color: --pink-500;
+      }
   }
+
+}
+
+.button {
+  color: var(--pink-500);
+  background: none;
+  border: none;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding-top: 4rem;
 }
