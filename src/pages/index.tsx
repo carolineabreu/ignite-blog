@@ -8,7 +8,9 @@ import { useState } from 'react';
 import { FiCalendar, FiUser } from 'react-icons/fi';
 import { getPrismicClient } from '../services/prismic';
 import commonStyle from '../styles/common.module.scss';
+import { capitalizeTime } from '../utils/capitalize';
 import styles from './home.module.scss';
+import Header from '../components/Header';
 
 interface Post {
   uid?: string;
@@ -62,19 +64,13 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
       });
   }
 
-  function capitalizeTime(string: string): string {
-    const firstTwoLetters = string.slice(0, 2); // day ex: 27
-    const capitalize = string[3].toLocaleUpperCase(); // first letter month ex:s
-    const restOfString = string.slice(4); // rest ex: et 2023
-
-    return `${firstTwoLetters} ${capitalize}${restOfString}`; // 27 Set 2023
-  }
-
   return (
     <>
       <Head>
         <title>Posts | spacetraveling</title>
       </Head>
+
+      <Header />
 
       <main className={`${commonStyle.container}`}>
         <div className={styles.posts}>
@@ -85,12 +81,12 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
                   <h1>{post.data.title}</h1>
                 </Link>
                 <p>{post.data.subtitle}</p>
-                <div className={styles.footer}>
-                  <div className={styles.footerItem}>
+                <div className={commonStyle.infos}>
+                  <div className={commonStyle.infosItem}>
                     <FiCalendar />
                     <time>{capitalizeTime(post.first_publication_date)}</time>
                   </div>
-                  <div className={styles.footerItem}>
+                  <div className={commonStyle.infosItem}>
                     <FiUser />
                     <span>{post.data.author}</span>
                   </div>
