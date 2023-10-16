@@ -1,1 +1,23 @@
-// TODO
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.infos {
+  display: flex;
+  gap: 1.5rem;
+  padding-top: 1rem;
+  align-items: center;
+
+  .infosItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    p, span, time {
+      font-size: 0.875rem;
+      font-weight: 400;
+    }
+  }
+}
